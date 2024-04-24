@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from ..helpers.validation_expection import ValidationException
+from helpers.validation_expection import ValidationException
 
-from ..helpers.setup import setup
-from ..helpers.parse import parse_markdown_elements
+from helpers.setup import setup
+from helpers.parse import parse_markdown_elements
 
 import argparse
 import json
@@ -22,7 +22,7 @@ with open("account.json", "r") as file:
     login_details = json.load(file)
 
 # Load {source}.csv
-with open(f"{args.source}.csv", "r") as file:
+with open(f"{args.source}-urls.csv", "r") as file:
     urls = file.readlines()
 
 # Setup WebDriver (make sure to have the correct driver for your browser, e.g., chromedriver)
