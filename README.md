@@ -1,6 +1,6 @@
 # data-scraper
 
-Scrape smart contract audits from solodit.xyz
+Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 
 ### Usage
 
@@ -13,7 +13,7 @@ Scrape smart contract audits from solodit.xyz
 ```
 
 2. Run `./scrape-urls.sh -s {SOURCE}`
-- {SOURCE} is the name of the authors of the audit. E.g. `Cyfrin`.
+- `{SOURCE}` is the name of the authors of the audit. E.g. `Cyfrin`.
 - This will go through all pages of audits and scrape their URLs.
 - URLs are saved in `{SOURCE}-urls.csv`
 
