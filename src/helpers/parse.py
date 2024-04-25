@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from validation_expection import ValidationException
+from src.helpers.validation_exception import ValidationException
 import re
 
 
@@ -25,6 +25,7 @@ def parse(element):
 previous_section = None
 
 
+# "name", "severity", "function", "description", "recommendation", "impact"
 def get_section(text):
     global previous_section
 
@@ -37,7 +38,7 @@ def get_section(text):
     elif text.startswith("Impact"):
         section = "impact"
     elif text.startswith("Recommended Mitigation:"):
-        section = "mitigation"
+        section = "recommendation"
     elif text.startswith("Exploit:"):
         section = "exploit"
     else:
@@ -74,9 +75,13 @@ def extract_function(items):
 
 
 def validate_sections(sections):
-    for section in sections:
-        if section not in ["description", "impact", "mitigation"]:
-            raise ValueError(f"Unknown section: {section}")
+    mandatory_sections = ["description", "recommendation"]
+
+    for section in mandatory_sections:
+        if section not in sections:
+            raise ValidationException()
+
+    return sections
 
 
 def parse_markdown_elements(elements):
@@ -84,9 +89,9 @@ def parse_markdown_elements(elements):
     sections = [get_section(item["text"]) for item in parsed_items]
 
     items = list(filter(lambda item: item[0] != "unknown", zip(sections, parsed_items)))
-    func = extract_function(items)
 
+    func = extract_function(items)
     sections = group_by_section_and_join(items)
     sections = clear_prefixes(sections)
     sections["function"] = func
-    return sections
+    return validate_sections(sections)

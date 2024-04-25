@@ -2,11 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from tqdm import tqdm
 
-from helpers.validation_expection import ValidationException
-
-from helpers.setup import setup
-from helpers.parse import parse_markdown_elements
+from .helpers.validation_exception import ValidationException
+from .helpers.setup import setup
+from .helpers.parse import parse_markdown_elements
+from .database import Database
 
 import argparse
 import json
@@ -25,13 +26,14 @@ with open("account.json", "r") as file:
 with open(f"{args.source}-urls.csv", "r") as file:
     urls = file.readlines()
 
+db = Database(args.source)
+
 # Setup WebDriver (make sure to have the correct driver for your browser, e.g., chromedriver)
 driver = webdriver.Chrome()
 
 setup(driver, login_details)
 
-
-for url in urls:
+for url in tqdm(urls):
     driver.get(url)
 
     """
@@ -70,17 +72,11 @@ for url in urls:
     try:
         sections = parse_markdown_elements(child_elements)
     except ValidationException as e:
-        # print(e)
         continue
 
-    print(f"URL: {url}")
-    print(f"Name: {name}")
-    print(f"Severity: {severity}")
-    # print(f"Desctiption: {sections['description']}")
-    print(f"Function: {sections['function']}")
-    print("####################")
-    print("\n\n")
+    sections["name"] = name
+    sections["severity"] = severity
 
-    # Contact api to submit the data
+    db.record(sections)
 
 driver.quit()

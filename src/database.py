@@ -1,47 +1,42 @@
-# WIP
-# class Database:
-#     def __init__(self, name):
-#         self.file = open(name, "a")
+import csv
+import os
 
-#         fieldnames = [
-#             "name",
-#             "severity",
-#             "type",
-#             "function",
-#             "description",
-#             "recommendation",
-#             "exploit_scenarios",
-#         ]
-
-#     def record(self, data):
-#         self.file.write(data)
-
-#     def close(self):
-#         self.file.close()
+# Use special delimiter to avoid conflicts with commas in the data
+csv.register_dialect(
+    "mydialect",
+    delimiter="ч",
+    quoting=csv.QUOTE_MINIMAL,
+)
 
 
-# def record():
+class Database:
+    def __init__(self, name):
+        file_exists = os.path.isfile(f"{name}-db.csv")
+        self.file = open(f"{name}-db.csv", "a")
 
-#     fieldnames = [
-#         "name",
-#         "severity",
-#         "type",
-#         "function",
-#         "description",
-#         "recommendation",
-#         "exploit_scenarios",
-#     ]
-#     # Process each field to escape special characters
-#     data = {
-#         field: escape_special_chars(request.form.get(field, "")) for field in fieldnames
-#     }
+        fieldnames = [
+            "name",
+            "severity",
+            "function",
+            "description",
+            "recommendation",
+            "impact",
+        ]
 
-#     print(data)
+        self.writer = csv.DictWriter(
+            self.file, fieldnames=fieldnames, dialect="mydialect"
+        )
 
-#     file_exists = os.path.isfile("db.csv")
+        if not file_exists:
+            self.writer.writeheader()
 
-#     with open("db.csv", "a", newline="") as csvfile:
-#         writer = csv.DictWriter(csvfile, fieldnames=fieldnames, dialect="mydialect")
-#         if not file_exists:
-#             writer.writeheader()
-#         writer.writerow(data)
+    def escape(self, data):
+        for key in data:
+            data[key] = data[key].replace("\n", "\\n").replace("\r", "")
+        return data
+
+    def record(self, data):
+        self.writer.writerow(self.escape(data))
+
+    def close(self):
+        self.file.close()
