@@ -1,38 +1,5 @@
-from selenium.webdriver.common.by import By
-from src.helpers.validation_exception import ValidationException
-import re
-
-
-def surround_code(element):
-    is_code = False
-    if element.tag_name == "pre":
-        is_code = True
-        paragraph = f"""```
-{element.text}
-```
-"""
-        paragraph = paragraph.replace("...", "// rest of code")
-        paragraph = paragraph.replace(">>", "")
-        paragraph = paragraph.replace("@>", "")
-
-        inserted_span_items = element.find_elements(
-            By.CSS_SELECTOR, "span.token.prefix.inserted"
-        )
-        deleted_span_items = element.find_elements(
-            By.CSS_SELECTOR, "span.token.prefix.deleted"
-        )
-        for span in [*inserted_span_items, *deleted_span_items]:
-            if span.text == "+":
-                paragraph = paragraph.replace(span.text, "// Add the line below\n")
-            if span.text == "-":
-                paragraph = paragraph.replace(span.text, "// Remove the line below\n")
-    else:
-        paragraph = element.text
-        inline_code_items = element.find_elements(By.TAG_NAME, "code")
-        for inline_code in inline_code_items:
-            paragraph = paragraph.replace(inline_code.text, f"`{inline_code.text}`")
-
-    return {"text": paragraph, "is_code": is_code}
+from vulnerable.src.helpers.validation_exception import ValidationException
+from vulnerable.src.helpers.code import surround_code
 
 
 def group_by_section_and_join(items):

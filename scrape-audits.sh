@@ -20,6 +20,11 @@ while getopts ":s:" opt; do
   esac
 done
 
+if [ ! -d "db-vulnerable" ]; then
+    mkdir -p "db-vulnerable"
+fi
+
+
 # Check if SOURCE is not empty.
 if [[ -z "$SOURCE" ]]; then
     echo "You must provide a source with -s"
@@ -27,4 +32,4 @@ if [[ -z "$SOURCE" ]]; then
 fi
 
 # Run the scrape_audit.py module with the source argument.
-python -m src.scrape_audit -s "$SOURCE"
+python -m vulnerable.src.scrape_audit -s "$SOURCE"

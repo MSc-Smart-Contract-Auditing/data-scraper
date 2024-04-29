@@ -25,12 +25,14 @@ elif args.source == "ConsenSys":
     from .parsers.consensys_parser import parse_markdown_elements
 elif args.source == "Trust Security":
     from .parsers.trustsecurity_parser import parse_markdown_elements
+elif args.source == "Sherlock":
+    from .parsers.sherlock_parser import parse_markdown_elements
 else:
     print("Unknown source")
     exit(1)
 
 # Open the JSON file for reading
-with open("account.json", "r") as file:
+with open("vulnerable/account.json", "r") as file:
     login_details = json.load(file)
 
 # Load {source}.csv

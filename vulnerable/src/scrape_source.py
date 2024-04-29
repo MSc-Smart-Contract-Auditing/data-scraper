@@ -12,7 +12,7 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-with open("account.json", "r") as file:
+with open("vulnerable/account.json", "r") as file:
     login_details = json.load(file)
 
 driver = webdriver.Chrome()
