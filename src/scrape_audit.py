@@ -23,6 +23,8 @@ elif args.source == "Codehawks":
     from .parsers.codehawks_parser import parse_markdown_elements
 elif args.source == "ConsenSys":
     from .parsers.consensys_parser import parse_markdown_elements
+elif args.source == "Trust Security":
+    from .parsers.trustsecurity_parser import parse_markdown_elements
 else:
     print("Unknown source")
     exit(1)
