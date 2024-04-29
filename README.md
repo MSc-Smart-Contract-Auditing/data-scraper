@@ -18,4 +18,4 @@ Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 - URLs are saved in `{SOURCE}-urls.csv`
 
 3. Run `./scrape-audits.sh -s {SOURCE}`
-- This will go through each URL in `{SOURCE}-urls.csv` and will save the results in `{SOURCE}-data.csv`
+- This will go through each URL in `{SOURCE}-urls.csv` and will save the results in `{SOURCE}-db.csv`
