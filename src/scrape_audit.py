@@ -6,7 +6,6 @@ from tqdm import tqdm
 
 from .helpers.validation_exception import ValidationException
 from .helpers.setup import setup
-from .helpers.parse import parse_markdown_elements
 from .database import Database
 
 import argparse
@@ -17,6 +16,14 @@ parser.add_argument(
     "-s", "--source", type=str, required=True, help="The source to scrape from"
 )
 args = parser.parse_args()
+
+if args.source == "Cyfrin":
+    from .parsers.cyfrin_parser import parse_markdown_elements
+elif args.source == "Codehawks":
+    from .parsers.codehawks_parser import parse_markdown_elements
+else:
+    print("Unknown source")
+    exit(1)
 
 # Open the JSON file for reading
 with open("account.json", "r") as file:

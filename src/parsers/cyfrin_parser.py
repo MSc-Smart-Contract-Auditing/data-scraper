@@ -3,7 +3,7 @@ from src.helpers.validation_exception import ValidationException
 import re
 
 
-def parse(element):
+def surround_code(element):
     is_code = False
     if element.tag_name == "pre":
         is_code = True
@@ -35,7 +35,7 @@ def get_section(text):
     section = None
     if text.startswith("Description:"):
         section = "description"
-    elif text.startswith("Impact"):
+    elif text.startswith("Impact:"):
         section = "impact"
     elif text.startswith("Recommended Mitigation:"):
         section = "recommendation"
@@ -85,7 +85,7 @@ def validate_sections(sections):
 
 
 def parse_markdown_elements(elements):
-    parsed_items = [parse(element) for element in elements]
+    parsed_items = [surround_code(element) for element in elements]
     sections = [get_section(item["text"]) for item in parsed_items]
 
     items = list(filter(lambda item: item[0] != "unknown", zip(sections, parsed_items)))
