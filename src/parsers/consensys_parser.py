@@ -66,6 +66,7 @@ def validate_sections(sections):
 
 
 next_section = None
+is_solidity = False
 
 
 # "name", "severity", "function", "description", "recommendation", "impact"
@@ -73,38 +74,23 @@ next_section = None
 # new title is encountered
 def get_section(text):
     global next_section
+    global is_solidity
 
-    if text.startswith("Summary"):
+    if text.startswith("Description"):
         next_section = "description"
         return None
 
-    if text.startswith("Vulnerability Details"):
+    if text.startswith("Examples"):
         next_section = "description"
         return None
 
-    if text.startswith("Proof of Concept") or text.startswith("PoC"):
-        next_section = "description"
-        return None
-
-    if text.startswith("Impact"):
-        next_section = "impact"
-        return None
-
-    if text.startswith("Recommendations"):
+    if text.startswith("Recommendation"):
         next_section = "recommendation"
         return None
 
-    # IGNORED ONES
-    if text.startswith("Severity"):
-        next_section = None
-        return None
-
-    if text.startswith("Relevant GitHub Links"):
-        next_section = None
-        return None
-
-    if text.startswith("Tools Used"):
-        next_section = None
+    # Just skip filenames
+    if ".sol" in text:
+        is_solidity = True
         return None
 
     return next_section
@@ -120,7 +106,13 @@ def parse_markdown_elements(elements):
     sections = group_by_section_and_join(items)
     sections["function"] = func
 
+    global is_solidity
     global next_section
+
+    if not is_solidity:
+        raise ValidationException()
+
+    is_solidity = False
     next_section = None
 
     return validate_sections(sections)

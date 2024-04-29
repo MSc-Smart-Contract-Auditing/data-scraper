@@ -94,4 +94,7 @@ def parse_markdown_elements(elements):
     sections = group_by_section_and_join(items)
     sections = clear_prefixes(sections)
     sections["function"] = func
+
+    global previous_section
+    previous_section = None
     return validate_sections(sections)
