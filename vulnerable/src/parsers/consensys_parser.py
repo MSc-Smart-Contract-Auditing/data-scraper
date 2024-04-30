@@ -1,5 +1,5 @@
-from vulnerable.src.helpers.validation_exception import ValidationException
-from vulnerable.src.helpers.code import surround_code
+from src.helpers.validation_exception import ValidationException
+from src.helpers.code import surround_code
 
 
 def group_by_section_and_join(items):

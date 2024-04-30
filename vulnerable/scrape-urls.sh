@@ -27,4 +27,4 @@ if [[ -z "$SOURCE" ]]; then
 fi
 
 # Run the scrape_audit.py module with the source argument.
-python -m vulnerable.src.scrape_source -s "$SOURCE"
+python -m src.scrape_source -s "$SOURCE"

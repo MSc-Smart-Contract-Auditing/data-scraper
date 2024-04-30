@@ -4,7 +4,10 @@ Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 
 ### Usage
 
-1. Create a file `account.json` with the following content:
+## Scraping vulnerable contracts
+
+1. `cd vulnerable` to go to the correct folder
+2. Create a file `account.json` with the following content:
 ```json
 {
     "email": "Solodit email",
@@ -12,10 +15,18 @@ Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 }
 ```
 
-2. Run `./scrape-urls.sh -s {SOURCE}`
+3. Run `./scrape-urls.sh -s {SOURCE}`
 - `{SOURCE}` is the name of the authors of the audit. E.g. `Cyfrin`.
 - This will go through all pages of audits and scrape their URLs.
 - URLs are saved in `{SOURCE}-urls.csv`
 
-3. Run `./scrape-audits.sh -s {SOURCE}`
+4. Run `./scrape-audits.sh -s {SOURCE}`
 - This will go through each URL in `{SOURCE}-urls.csv` and will save the results in `{SOURCE}-db.csv`
+
+## Scraping verified contracts
+
+1. `cd verified`
+2. Run `./scrape-urls`. This will scrape the urls of all verified contracts written in `Solidity` with more than 1 ETH
+3. Run `./scrape-contracts`. This will scrape the actual contracts. Each contract is saved under a folder with it's name containing all contracts necessary.
+4. Run `./prepare-contracts`. This will fix the import statements to prepare the contracts for compilation.
+5. TODO: Compile contracts to retrieve the Abstract Syntax Tree (AST) which will be used for scraping functions

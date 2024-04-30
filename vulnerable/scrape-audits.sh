@@ -20,8 +20,8 @@ while getopts ":s:" opt; do
   esac
 done
 
-if [ ! -d "db-vulnerable" ]; then
-    mkdir -p "db-vulnerable"
+if [ ! -d "../db-vulnerable" ]; then
+    mkdir -p "../db-vulnerable"
 fi
 
 
@@ -32,4 +32,4 @@ if [[ -z "$SOURCE" ]]; then
 fi
 
 # Run the scrape_audit.py module with the source argument.
-python -m vulnerable.src.scrape_audit -s "$SOURCE"
+python -m src.scrape_audit -s "$SOURCE"

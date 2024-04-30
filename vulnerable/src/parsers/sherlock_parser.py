@@ -1,5 +1,5 @@
-from vulnerable.src.helpers.validation_exception import ValidationException
-from vulnerable.src.helpers.code import surround_code
+from src.helpers.validation_exception import ValidationException
+from src.helpers.code import surround_code, require_solidity_code
 
 
 def group_by_section_and_join(items):
@@ -36,6 +36,7 @@ def validate_sections(sections):
 # Idea: skip title by returning None, and keep returning "next_section" until a
 # new title is encountered
 next_section = None
+skip_sections = ["Tool used", "Discussion", "Found by", "Code Snippet"]
 
 
 def get_section(text):
@@ -61,24 +62,23 @@ def get_section(text):
         next_section = "recommendation"
         return None
 
-    # Just skip filenames
-    if ".sol" in text:
+    # Skip filename but keep the section type
+    if "http" in text:
         return None
+
+    # Skip the following sections
+    for section in skip_sections:
+        if section in text:
+            next_section = None
+            return None
 
     return next_section
 
 
-def is_solidity(elements):
-    return any(
-        "language-solidity" in element.get_attribute("class") for element in elements
-    )
-
-
 def parse_markdown_elements(elements):
-    parsed_items = [surround_code(element) for element in elements]
+    require_solidity_code(elements)
 
-    if not is_solidity(elements):
-        raise ValidationException()
+    parsed_items = [surround_code(element) for element in elements]
 
     sections = [get_section(item["text"]) for item in parsed_items]
 

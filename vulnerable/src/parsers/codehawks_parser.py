@@ -1,5 +1,5 @@
-from vulnerable.src.helpers.validation_exception import ValidationException
-from vulnerable.src.helpers.code import surround_code
+from src.helpers.validation_exception import ValidationException
+from src.helpers.code import surround_code, require_solidity_code
 
 
 def group_by_section_and_join(items):
@@ -78,6 +78,8 @@ def get_section(text):
 
 
 def parse_markdown_elements(elements):
+    require_solidity_code(elements)
+
     parsed_items = [surround_code(element) for element in elements]
     sections = [get_section(item["text"]) for item in parsed_items]
 

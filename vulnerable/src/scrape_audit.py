@@ -32,7 +32,7 @@ else:
     exit(1)
 
 # Open the JSON file for reading
-with open("vulnerable/account.json", "r") as file:
+with open("account.json", "r") as file:
     login_details = json.load(file)
 
 # Load {source}.csv

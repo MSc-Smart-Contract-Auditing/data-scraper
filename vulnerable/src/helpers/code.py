@@ -71,3 +71,14 @@ def surround_code(element):
         paragraph = surround_inline(element)
 
     return {"text": paragraph, "is_code": is_code}
+
+
+def require_solidity_code(elements):
+    has_solidity_codeblocks = any(
+        "language-solidity" in element.get_attribute("class") for element in elements
+    )
+
+    has_solidity_filenames = any(".sol" in element.text for element in elements)
+
+    if not (has_solidity_codeblocks or has_solidity_filenames):
+        raise ValidationException()

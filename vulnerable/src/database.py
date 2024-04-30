@@ -11,16 +11,16 @@ csv.register_dialect(
 
 class Database:
     def __init__(self, name):
-        file_exists = os.path.isfile(f"db-vulnerable/{name}-db.csv")
-        self.file = open(f"db-vulnerable/{name}-db.csv", "a")
+        file_exists = os.path.isfile(f"../db-vulnerable/{name}-db.csv")
+        self.file = open(f"../db-vulnerable/{name}-db.csv", "a")
 
         fieldnames = [
             "name",
             "severity",
-            "function",
             "description",
             "recommendation",
             "impact",
+            "function",
         ]
 
         self.writer = csv.DictWriter(
