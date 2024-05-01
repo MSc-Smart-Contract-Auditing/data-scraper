@@ -1,0 +1,156 @@
+{
+    "absolutePath": "contracts/NutraceuticalFinance-0.8.4/IUniswapV2Factory.sol",
+    "exportedSymbols": {
+        "IUniswapV2Factory": [
+            845
+        ]
+    },
+    "id": 846,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+        {
+            "id": 835,
+            "literals": [
+                "solidity",
+                "0.8",
+                ".4"
+            ],
+            "nodeType": "PragmaDirective",
+            "src": "0:22:6"
+        },
+        {
+            "abstract": false,
+            "baseContracts": [],
+            "contractDependencies": [],
+            "contractKind": "interface",
+            "fullyImplemented": false,
+            "id": 845,
+            "linearizedBaseContracts": [
+                845
+            ],
+            "name": "IUniswapV2Factory",
+            "nameLocation": "67:17:6",
+            "nodeType": "ContractDefinition",
+            "nodes": [
+                {
+                    "functionSelector": "c9c65396",
+                    "id": 844,
+                    "implemented": false,
+                    "kind": "function",
+                    "modifiers": [],
+                    "name": "createPair",
+                    "nameLocation": "101:10:6",
+                    "nodeType": "FunctionDefinition",
+                    "parameters": {
+                        "id": 840,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "constant": false,
+                                "id": 837,
+                                "mutability": "mutable",
+                                "name": "tokenA",
+                                "nameLocation": "120:6:6",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 844,
+                                "src": "112:14:6",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                },
+                                "typeName": {
+                                    "id": 836,
+                                    "name": "address",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "112:7:6",
+                                    "stateMutability": "nonpayable",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 839,
+                                "mutability": "mutable",
+                                "name": "tokenB",
+                                "nameLocation": "136:6:6",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 844,
+                                "src": "128:14:6",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                },
+                                "typeName": {
+                                    "id": 838,
+                                    "name": "address",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "128:7:6",
+                                    "stateMutability": "nonpayable",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    }
+                                },
+                                "visibility": "internal"
+                            }
+                        ],
+                        "src": "111:32:6"
+                    },
+                    "returnParameters": {
+                        "id": 843,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                            {
+                                "constant": false,
+                                "id": 842,
+                                "mutability": "mutable",
+                                "name": "pair",
+                                "nameLocation": "186:4:6",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 844,
+                                "src": "178:12:6",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                },
+                                "typeName": {
+                                    "id": 841,
+                                    "name": "address",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "178:7:6",
+                                    "stateMutability": "nonpayable",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    }
+                                },
+                                "visibility": "internal"
+                            }
+                        ],
+                        "src": "177:14:6"
+                    },
+                    "scope": 845,
+                    "src": "92:100:6",
+                    "stateMutability": "nonpayable",
+                    "virtual": false,
+                    "visibility": "external"
+                }
+            ],
+            "scope": 846,
+            "src": "57:137:6",
+            "usedErrors": []
+        }
+    ],
+    "src": "0:194:6"
+}

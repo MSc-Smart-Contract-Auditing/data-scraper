@@ -1,0 +1,353 @@
+{
+    "attributes": {
+        "absolutePath": "contracts/BotGainsProtocol-0.5.5/Context.sol",
+        "exportedSymbols": {
+            "Context": [
+                2216
+            ]
+        }
+    },
+    "children": [
+        {
+            "attributes": {
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.5",
+                    ".0"
+                ]
+            },
+            "id": 2191,
+            "name": "PragmaDirective",
+            "src": "0:23:2"
+        },
+        {
+            "attributes": {
+                "baseContracts": [
+                    null
+                ],
+                "contractDependencies": [
+                    null
+                ],
+                "contractKind": "contract",
+                "documentation": null,
+                "fullyImplemented": true,
+                "linearizedBaseContracts": [
+                    2216
+                ],
+                "name": "Context",
+                "scope": 2217
+            },
+            "children": [
+                {
+                    "attributes": {
+                        "documentation": null,
+                        "implemented": true,
+                        "isConstructor": true,
+                        "kind": "constructor",
+                        "modifiers": [
+                            null
+                        ],
+                        "name": "",
+                        "scope": 2216,
+                        "stateMutability": "nonpayable",
+                        "superFunction": null,
+                        "visibility": "internal"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2192,
+                            "name": "ParameterList",
+                            "src": "714:2:2"
+                        },
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2193,
+                            "name": "ParameterList",
+                            "src": "726:0:2"
+                        },
+                        {
+                            "attributes": {
+                                "statements": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2194,
+                            "name": "Block",
+                            "src": "726:3:2"
+                        }
+                    ],
+                    "id": 2195,
+                    "name": "FunctionDefinition",
+                    "src": "702:27:2"
+                },
+                {
+                    "attributes": {
+                        "documentation": null,
+                        "implemented": true,
+                        "isConstructor": false,
+                        "kind": "function",
+                        "modifiers": [
+                            null
+                        ],
+                        "name": "_msgSender",
+                        "scope": 2216,
+                        "stateMutability": "view",
+                        "superFunction": null,
+                        "visibility": "internal"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2196,
+                            "name": "ParameterList",
+                            "src": "807:2:2"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "attributes": {
+                                        "constant": false,
+                                        "name": "",
+                                        "scope": 2204,
+                                        "stateVariable": false,
+                                        "storageLocation": "default",
+                                        "type": "address payable",
+                                        "value": null,
+                                        "visibility": "internal"
+                                    },
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "name": "address",
+                                                "stateMutability": "payable",
+                                                "type": "address payable"
+                                            },
+                                            "id": 2197,
+                                            "name": "ElementaryTypeName",
+                                            "src": "833:15:2"
+                                        }
+                                    ],
+                                    "id": 2198,
+                                    "name": "VariableDeclaration",
+                                    "src": "833:15:2"
+                                }
+                            ],
+                            "id": 2199,
+                            "name": "ParameterList",
+                            "src": "832:17:2"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "attributes": {
+                                        "functionReturnParameters": 2199
+                                    },
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "member_name": "sender",
+                                                "referencedDeclaration": null,
+                                                "type": "address payable"
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 10643,
+                                                        "type": "msg",
+                                                        "value": "msg"
+                                                    },
+                                                    "id": 2200,
+                                                    "name": "Identifier",
+                                                    "src": "867:3:2"
+                                                }
+                                            ],
+                                            "id": 2201,
+                                            "name": "MemberAccess",
+                                            "src": "867:10:2"
+                                        }
+                                    ],
+                                    "id": 2202,
+                                    "name": "Return",
+                                    "src": "860:17:2"
+                                }
+                            ],
+                            "id": 2203,
+                            "name": "Block",
+                            "src": "850:34:2"
+                        }
+                    ],
+                    "id": 2204,
+                    "name": "FunctionDefinition",
+                    "src": "788:96:2"
+                },
+                {
+                    "attributes": {
+                        "documentation": null,
+                        "implemented": true,
+                        "isConstructor": false,
+                        "kind": "function",
+                        "modifiers": [
+                            null
+                        ],
+                        "name": "_msgData",
+                        "scope": 2216,
+                        "stateMutability": "view",
+                        "superFunction": null,
+                        "visibility": "internal"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2205,
+                            "name": "ParameterList",
+                            "src": "907:2:2"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "attributes": {
+                                        "constant": false,
+                                        "name": "",
+                                        "scope": 2215,
+                                        "stateVariable": false,
+                                        "storageLocation": "memory",
+                                        "type": "bytes",
+                                        "value": null,
+                                        "visibility": "internal"
+                                    },
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "name": "bytes",
+                                                "type": "bytes"
+                                            },
+                                            "id": 2206,
+                                            "name": "ElementaryTypeName",
+                                            "src": "933:5:2"
+                                        }
+                                    ],
+                                    "id": 2207,
+                                    "name": "VariableDeclaration",
+                                    "src": "933:12:2"
+                                }
+                            ],
+                            "id": 2208,
+                            "name": "ParameterList",
+                            "src": "932:14:2"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "overloadedDeclarations": [
+                                                    null
+                                                ],
+                                                "referencedDeclaration": 10661,
+                                                "type": "contract Context",
+                                                "value": "this"
+                                            },
+                                            "id": 2209,
+                                            "name": "Identifier",
+                                            "src": "957:4:2"
+                                        }
+                                    ],
+                                    "id": 2210,
+                                    "name": "ExpressionStatement",
+                                    "src": "957:4:2"
+                                },
+                                {
+                                    "attributes": {
+                                        "functionReturnParameters": 2208
+                                    },
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "member_name": "data",
+                                                "referencedDeclaration": null,
+                                                "type": "bytes calldata"
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 10643,
+                                                        "type": "msg",
+                                                        "value": "msg"
+                                                    },
+                                                    "id": 2211,
+                                                    "name": "Identifier",
+                                                    "src": "1097:3:2"
+                                                }
+                                            ],
+                                            "id": 2212,
+                                            "name": "MemberAccess",
+                                            "src": "1097:8:2"
+                                        }
+                                    ],
+                                    "id": 2213,
+                                    "name": "Return",
+                                    "src": "1090:15:2"
+                                }
+                            ],
+                            "id": 2214,
+                            "name": "Block",
+                            "src": "947:165:2"
+                        }
+                    ],
+                    "id": 2215,
+                    "name": "FunctionDefinition",
+                    "src": "890:222:2"
+                }
+            ],
+            "id": 2216,
+            "name": "ContractDefinition",
+            "src": "525:589:2"
+        }
+    ],
+    "id": 2217,
+    "name": "SourceUnit",
+    "src": "0:1114:2"
+}

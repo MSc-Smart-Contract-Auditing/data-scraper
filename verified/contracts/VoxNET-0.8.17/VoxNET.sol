@@ -6,9 +6,9 @@
 
 pragma solidity 0.8.17;
 
-import "@uniswap/v2-core/contracts/interfaces/IERC20.sol";
-import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+import "./IERC20.sol";
+import "./IUniswapV2Pair.sol";
+import "./IUniswapV2Router02.sol";
 
 library FixedPoint {
     uint8 public constant RESOLUTION = 112;

@@ -29,4 +29,5 @@ Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 2. Run `./scrape-urls`. This will scrape the urls of all verified contracts written in `Solidity` with more than 1 ETH
 3. Run `./scrape-contracts`. This will scrape the actual contracts. Each contract is saved under a folder with it's name containing all contracts necessary.
 4. Run `./prepare-contracts`. This will fix the import statements to prepare the contracts for compilation.
+- ** Do not close the browser or the scraper will crash! **
 5. TODO: Compile contracts to retrieve the Abstract Syntax Tree (AST) which will be used for scraping functions

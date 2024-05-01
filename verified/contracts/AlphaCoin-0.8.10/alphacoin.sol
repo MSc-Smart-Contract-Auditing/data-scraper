@@ -2,9 +2,9 @@ pragma solidity ^0.8.10;
 
 // SPDX-License-Identifier: Unlicensed
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
+import "./ERC20.sol";
+import "./Ownable.sol";
+import "./Address.sol";
 
 
 interface IUniswapV2Factory {

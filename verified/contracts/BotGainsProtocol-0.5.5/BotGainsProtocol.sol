@@ -1,12 +1,12 @@
 pragma solidity ^0.5.0;
 
-import "hardhat/console.sol";
+import "./console.sol";
 
 import "./BotGainsProtocolStorage.sol";
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/ownership/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "./SafeMath.sol";
+import "./Ownable.sol";
+import "./ReentrancyGuard.sol";
 
 contract BotGainsProtocol is Ownable,ReentrancyGuard {
     using SafeMath for uint256;

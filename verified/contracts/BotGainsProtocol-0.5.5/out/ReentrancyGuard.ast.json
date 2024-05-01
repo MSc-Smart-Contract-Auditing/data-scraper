@@ -1,0 +1,406 @@
+{
+    "attributes": {
+        "absolutePath": "contracts/BotGainsProtocol-0.5.5/ReentrancyGuard.sol",
+        "exportedSymbols": {
+            "ReentrancyGuard": [
+                2364
+            ]
+        }
+    },
+    "children": [
+        {
+            "attributes": {
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.5",
+                    ".0"
+                ]
+            },
+            "id": 2336,
+            "name": "PragmaDirective",
+            "src": "0:23:4"
+        },
+        {
+            "attributes": {
+                "baseContracts": [
+                    null
+                ],
+                "contractDependencies": [
+                    null
+                ],
+                "contractKind": "contract",
+                "documentation": "@dev Contract module that helps prevent reentrant calls to a function.\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\navailable, which can be applied to functions to make sure there are no nested\n(reentrant) calls to them.\n * Note that because there is a single `nonReentrant` guard, functions marked as\n`nonReentrant` may not call one another. This can be worked around by making\nthose functions `private`, and then adding `external` `nonReentrant` entry\npoints to them.\n * TIP: If you would like to learn more about reentrancy and alternative ways\nto protect against it, check out our blog post\nhttps://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\n * _Since v2.5.0:_ this module is now much more gas efficient, given net gas\nmetering changes introduced in the Istanbul hardfork.",
+                "fullyImplemented": true,
+                "linearizedBaseContracts": [
+                    2364
+                ],
+                "name": "ReentrancyGuard",
+                "scope": 2365
+            },
+            "children": [
+                {
+                    "attributes": {
+                        "constant": false,
+                        "name": "_notEntered",
+                        "scope": 2364,
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "type": "bool",
+                        "value": null,
+                        "visibility": "private"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "name": "bool",
+                                "type": "bool"
+                            },
+                            "id": 2337,
+                            "name": "ElementaryTypeName",
+                            "src": "944:4:4"
+                        }
+                    ],
+                    "id": 2338,
+                    "name": "VariableDeclaration",
+                    "src": "944:24:4"
+                },
+                {
+                    "attributes": {
+                        "documentation": null,
+                        "implemented": true,
+                        "isConstructor": true,
+                        "kind": "constructor",
+                        "modifiers": [
+                            null
+                        ],
+                        "name": "",
+                        "scope": 2364,
+                        "stateMutability": "nonpayable",
+                        "superFunction": null,
+                        "visibility": "internal"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2339,
+                            "name": "ParameterList",
+                            "src": "987:2:4"
+                        },
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2340,
+                            "name": "ParameterList",
+                            "src": "999:0:4"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "operator": "=",
+                                                "type": "bool"
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 2338,
+                                                        "type": "bool",
+                                                        "value": "_notEntered"
+                                                    },
+                                                    "id": 2341,
+                                                    "name": "Identifier",
+                                                    "src": "1421:11:4"
+                                                },
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "hexvalue": "74727565",
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "subdenomination": null,
+                                                        "token": "bool",
+                                                        "type": "bool",
+                                                        "value": "true"
+                                                    },
+                                                    "id": 2342,
+                                                    "name": "Literal",
+                                                    "src": "1435:4:4"
+                                                }
+                                            ],
+                                            "id": 2343,
+                                            "name": "Assignment",
+                                            "src": "1421:18:4"
+                                        }
+                                    ],
+                                    "id": 2344,
+                                    "name": "ExpressionStatement",
+                                    "src": "1421:18:4"
+                                }
+                            ],
+                            "id": 2345,
+                            "name": "Block",
+                            "src": "999:447:4"
+                        }
+                    ],
+                    "id": 2346,
+                    "name": "FunctionDefinition",
+                    "src": "975:471:4"
+                },
+                {
+                    "attributes": {
+                        "documentation": "@dev Prevents a contract from calling itself, directly or indirectly.\nCalling a `nonReentrant` function from another `nonReentrant`\nfunction is not supported. It is possible to prevent this from happening\nby making the `nonReentrant` function external, and make it call a\n`private` function that does the actual work.",
+                        "name": "nonReentrant",
+                        "visibility": "internal"
+                    },
+                    "children": [
+                        {
+                            "attributes": {
+                                "parameters": [
+                                    null
+                                ]
+                            },
+                            "children": [],
+                            "id": 2347,
+                            "name": "ParameterList",
+                            "src": "1842:2:4"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "isStructConstructorCall": false,
+                                                "lValueRequested": false,
+                                                "names": [
+                                                    null
+                                                ],
+                                                "type": "tuple()",
+                                                "type_conversion": false
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": [
+                                                            {
+                                                                "typeIdentifier": "t_bool",
+                                                                "typeString": "bool"
+                                                            },
+                                                            {
+                                                                "typeIdentifier": "t_stringliteral_ebf73bba305590e4764d5cb53b69bffd6d4d092d1a67551cb346f8cfcdab8619",
+                                                                "typeString": "literal_string \"ReentrancyGuard: reentrant call\""
+                                                            }
+                                                        ],
+                                                        "overloadedDeclarations": [
+                                                            10646,
+                                                            10647
+                                                        ],
+                                                        "referencedDeclaration": 10647,
+                                                        "type": "function (bool,string memory) pure",
+                                                        "value": "require"
+                                                    },
+                                                    "id": 2348,
+                                                    "name": "Identifier",
+                                                    "src": "1926:7:4"
+                                                },
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 2338,
+                                                        "type": "bool",
+                                                        "value": "_notEntered"
+                                                    },
+                                                    "id": 2349,
+                                                    "name": "Identifier",
+                                                    "src": "1934:11:4"
+                                                },
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "hexvalue": "5265656e7472616e637947756172643a207265656e7472616e742063616c6c",
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "subdenomination": null,
+                                                        "token": "string",
+                                                        "type": "literal_string \"ReentrancyGuard: reentrant call\"",
+                                                        "value": "ReentrancyGuard: reentrant call"
+                                                    },
+                                                    "id": 2350,
+                                                    "name": "Literal",
+                                                    "src": "1947:33:4"
+                                                }
+                                            ],
+                                            "id": 2351,
+                                            "name": "FunctionCall",
+                                            "src": "1926:55:4"
+                                        }
+                                    ],
+                                    "id": 2352,
+                                    "name": "ExpressionStatement",
+                                    "src": "1926:55:4"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "operator": "=",
+                                                "type": "bool"
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 2338,
+                                                        "type": "bool",
+                                                        "value": "_notEntered"
+                                                    },
+                                                    "id": 2353,
+                                                    "name": "Identifier",
+                                                    "src": "2056:11:4"
+                                                },
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "hexvalue": "66616c7365",
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "subdenomination": null,
+                                                        "token": "bool",
+                                                        "type": "bool",
+                                                        "value": "false"
+                                                    },
+                                                    "id": 2354,
+                                                    "name": "Literal",
+                                                    "src": "2070:5:4"
+                                                }
+                                            ],
+                                            "id": 2355,
+                                            "name": "Assignment",
+                                            "src": "2056:19:4"
+                                        }
+                                    ],
+                                    "id": 2356,
+                                    "name": "ExpressionStatement",
+                                    "src": "2056:19:4"
+                                },
+                                {
+                                    "id": 2357,
+                                    "name": "PlaceholderStatement",
+                                    "src": "2086:1:4"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "argumentTypes": null,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "operator": "=",
+                                                "type": "bool"
+                                            },
+                                            "children": [
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "overloadedDeclarations": [
+                                                            null
+                                                        ],
+                                                        "referencedDeclaration": 2338,
+                                                        "type": "bool",
+                                                        "value": "_notEntered"
+                                                    },
+                                                    "id": 2358,
+                                                    "name": "Identifier",
+                                                    "src": "2230:11:4"
+                                                },
+                                                {
+                                                    "attributes": {
+                                                        "argumentTypes": null,
+                                                        "hexvalue": "74727565",
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "subdenomination": null,
+                                                        "token": "bool",
+                                                        "type": "bool",
+                                                        "value": "true"
+                                                    },
+                                                    "id": 2359,
+                                                    "name": "Literal",
+                                                    "src": "2244:4:4"
+                                                }
+                                            ],
+                                            "id": 2360,
+                                            "name": "Assignment",
+                                            "src": "2230:18:4"
+                                        }
+                                    ],
+                                    "id": 2361,
+                                    "name": "ExpressionStatement",
+                                    "src": "2230:18:4"
+                                }
+                            ],
+                            "id": 2362,
+                            "name": "Block",
+                            "src": "1845:410:4"
+                        }
+                    ],
+                    "id": 2363,
+                    "name": "ModifierDefinition",
+                    "src": "1821:434:4"
+                }
+            ],
+            "id": 2364,
+            "name": "ContractDefinition",
+            "src": "913:1344:4"
+        }
+    ],
+    "id": 2365,
+    "name": "SourceUnit",
+    "src": "0:2257:4"
+}

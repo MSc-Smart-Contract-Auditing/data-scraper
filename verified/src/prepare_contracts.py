@@ -8,9 +8,11 @@ def replace_imports(file_path):
         content = file.read()
 
     # Define the regex pattern to match import statements
-    full_import = re.compile(r'import "((\.\.?)(\/\w*)*\/)*(\w+).sol";', re.MULTILINE)
+    full_import = re.compile(
+        r"""import ["']@?((\.\.?)?(\/?[\w-]*)*\/)*(\w+).sol["'];""", re.MULTILINE
+    )
     partial_import = re.compile(
-        r'import {\s*(\w+(, \w+)*)\s*} from "((\.\.?)?(\/?\w*)*\/)*(\w+).sol";',
+        r"""import {\s*(\w+(, \w+)*)\s*} from ["'](@?(\.\.?)?(\/?[\w-]*)*\/)*(\w+).sol["'];""",
         re.MULTILINE,
     )
     # Replace import statements according to the pattern
