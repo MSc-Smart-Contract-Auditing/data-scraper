@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
-import {IERC20Permit} from "./CERC20Permit.sol";
-import {Blocklist} from "./Blocklist.sol";
+import { IERC20Permit } from "./CERC20Permit.sol";
+import { Blocklist } from "./Blocklist.sol";
 
 /**
  * @title Redemption Contract

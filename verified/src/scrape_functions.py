@@ -1,5 +1,8 @@
 import jmespath
 import json
+import os
+from pathlib import Path
+import csv
 
 
 def extract_source_code(file_path, start, length):
@@ -30,27 +33,49 @@ def get_loc(positions):
     return (int(num) for num in positions.split(":")[:2])
 
 
-# Example JSON data (assuming it's already loaded into a variable `data`)
-
-with open("contracts/TokenRedemption-0.8.19/out/Context.ast.json", "r") as file:
-    data = json.load(file)
+def escape(string):
+    return string.replace("\n", "\\n").replace("\r", "")
 
 
-query = """
-nodes[?nodeType == 'ContractDefinition'].nodes[] | [?nodeType == 'FunctionDefinition' && implemented].{
-    name: name,
-    src: src
-}
-"""
+db = open(f"../db-verified", "w")
+writer = csv.DictWriter(
+    db,
+    fieldnames=["function"],
+)
 
-# # Execute JMESPath query
-implemented_functions = jmespath.search(query, data)
-functions_ast = json.loads(json.dumps(implemented_functions, indent=4))
+directory = Path("contracts")
+for contract in os.listdir(directory):
+    files = os.listdir(directory / contract)
+    for file in files:
+        if file == "out":
+            continue
+        file_name = file.split(".")[0]
 
-# Example usage
-file_path = "contracts/TokenRedemption-0.8.19/Context.sol"
+        # Some files do not get compiled to an AST
+        try:
+            with open(directory / contract / f"out/{file_name}.ast.json", "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            continue
 
-for function_obj in functions_ast:
-    start, length = get_loc(function_obj["src"])
-    source_code_snippet = extract_source_code(file_path, start, length)
-    print(adjust_indentation(source_code_snippet))
+        query = """
+            nodes[?nodeType == 'ContractDefinition'].nodes[] | [?nodeType == 'FunctionDefinition' && implemented && !virtual]
+        """
+
+        # # Execute JMESPath query
+        implemented_functions = jmespath.search(query, data)
+        functions_ast = json.loads(json.dumps(implemented_functions, indent=4))
+
+        if not functions_ast:
+            continue
+
+        # Example usage
+        file_path = directory / contract / file
+        for function_obj in functions_ast:
+            start, length = get_loc(function_obj["src"])
+            source_code_snippet = extract_source_code(file_path, start, length)
+            source_code_snippet = adjust_indentation(source_code_snippet)
+            source_code_snippet = escape(source_code_snippet)
+            writer.writerow({"function": source_code_snippet})
+
+db.close()
