@@ -1,1 +1,1 @@
-python -m src.test
+python -m src.scrape_functions
