@@ -30,4 +30,5 @@ Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/)
 3. Run `./scrape-contracts`. This will scrape the actual contracts. Each contract is saved under a folder with it's name containing all contracts necessary.
 4. Run `./prepare-contracts`. This will fix the import statements to prepare the contracts for compilation.
 - ** Do not close the browser or the scraper will crash! **
-5. TODO: Compile contracts to retrieve the Abstract Syntax Tree (AST) which will be used for scraping functions
+5. Run `./compile`
+6. Run `./extract`
