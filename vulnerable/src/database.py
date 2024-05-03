@@ -1,12 +1,14 @@
 import csv
 import os
+import sys
 
-# Use special delimiter to avoid conflicts with commas in the data
-csv.register_dialect(
-    "mydialect",
-    delimiter="ч",
-    quoting=csv.QUOTE_MINIMAL,
-)
+"""
+Register a custom dialect for the CSV module
+"""
+common_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../common"))
+if common_path not in sys.path:
+    sys.path.append(common_path)
+from csv_dialect import get_dialect
 
 
 class Database:
@@ -24,7 +26,9 @@ class Database:
         ]
 
         self.writer = csv.DictWriter(
-            self.file, fieldnames=fieldnames, dialect="mydialect"
+            self.file,
+            fieldnames=fieldnames,
+            dialect=get_dialect(),
         )
 
         if not file_exists:

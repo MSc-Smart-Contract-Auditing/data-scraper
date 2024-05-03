@@ -3,13 +3,17 @@ import json
 import os
 from pathlib import Path
 import csv
+import sys
+import os
 
-csv.register_dialect(
-    "ch_dialect",
-    delimiter="ч",
-    quoting=csv.QUOTE_NONE,
-    escapechar="\\",
-)
+
+"""
+Register a custom dialect for the CSV module
+"""
+common_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../common"))
+if common_path not in sys.path:
+    sys.path.append(common_path)
+from csv_dialect import get_dialect
 
 
 def extract_source_code(file_path, start, length):
@@ -37,20 +41,26 @@ def adjust_indentation(source_code):
     return "\n".join(adjusted_lines)
 
 
+def surround_codeblocks(source_code):
+    return f"""```
+{source_code}
+```
+"""
+
+
 def get_loc(positions):
     return (int(num) for num in positions.split(":")[:2])
 
 
 def escape(string):
     return string.replace("\n", "\\n").replace("\r", "")
-    # return string
 
 
 db = open(f"../db-verified", "w")
 writer = csv.DictWriter(
     db,
     fieldnames=["function"],
-    dialect="ch_dialect",
+    dialect=get_dialect(),
 )
 writer.writeheader()
 
@@ -86,6 +96,7 @@ for contract in os.listdir(directory):
             start, length = get_loc(function_obj["src"])
             source_code_snippet = extract_source_code(file_path, start, length)
             source_code_snippet = adjust_indentation(source_code_snippet)
+            source_code_snippet = surround_codeblocks(source_code_snippet)
             source_code_snippet = escape(source_code_snippet)
             writer.writerow({"function": source_code_snippet})
 
