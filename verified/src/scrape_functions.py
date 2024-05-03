@@ -56,7 +56,7 @@ def escape(string):
     return string.replace("\n", "\\n").replace("\r", "")
 
 
-db = open(f"../db-verified", "w")
+db = open(f"../db-verified.csv", "w")
 writer = csv.DictWriter(
     db,
     fieldnames=["function"],
