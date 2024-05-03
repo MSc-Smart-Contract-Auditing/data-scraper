@@ -3,7 +3,6 @@ import sys
 import csv
 from .database import FIELDNAMES
 from pathlib import Path
-from tqdm import tqdm
 
 """
 Register a custom dialect for the CSV module
