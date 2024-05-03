@@ -1,12 +1,13 @@
 import csv
 
-DIALECT_NAME = "ch_dialect"
+DIALECT_NAME = "db_dialect"
 
 csv.register_dialect(
-    "ch_dialect",
-    delimiter="ч",
-    quoting=csv.QUOTE_NONE,
-    escapechar="\\",
+    DIALECT_NAME,
+    delimiter=",",  # Use comma as the delimiter
+    quoting=csv.QUOTE_MINIMAL,  # Quote fields that contain special characters
+    quotechar='"',  # Use double quotes for quoting fields
+    escapechar="\\",  # Use backslash to escape quote characters inside fields
 )
 
 

@@ -4,6 +4,8 @@ Scrape smart contract audits with vulnerable code and descriptions from [solodit
 
 Scrape verified (audited) functions from deployed contracts at [EtherScan](https://etherscan.io/).
 
+Datasets available in [HuggingFace](https://huggingface.co/msc-smart-contract-audition)
+
 ## Usage
 
 ### Scraping vulnerable contracts

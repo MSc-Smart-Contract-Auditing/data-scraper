@@ -3,3 +3,5 @@ account.json
 *-urls.csv
 db-vulnerable/
 verified/contracts/
+db-verified.csv
+db-vulnerable.csv
