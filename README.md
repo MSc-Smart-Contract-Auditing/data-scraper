@@ -1,7 +1,8 @@
 # data-scraper
 
-Scrape smart contract audits from [solodit.xyz](https://solodit.xyz/).
-Scrape verified (already auditted) functions from [EtherScan](https://etherscan.io/).
+Scrape smart contract audits with vulnerable code and descriptions from [solodit.xyz](https://solodit.xyz/).
+
+Scrape verified (audited) functions from deployed contracts at [EtherScan](https://etherscan.io/).
 
 ### Usage
 
