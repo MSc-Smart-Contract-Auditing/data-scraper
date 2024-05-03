@@ -1,3 +1,5 @@
 __pycache__/
 account.json
 *-urls.csv
+db-vulnerable/
+contracts/

@@ -46,5 +46,4 @@ def iterate_pages(driver):
         page_link.click()
         spinner = driver.find_element(By.CLASS_NAME, "animate-spin")
 
-    links.extend(scrape_links(driver))
     return links
