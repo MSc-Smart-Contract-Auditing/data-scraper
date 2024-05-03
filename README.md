@@ -33,7 +33,7 @@ Scrape verified (audited) functions from deployed contracts at [EtherScan](https
 2. Run `./scrape-urls.sh`. This will scrape the urls of all verified contracts written in `Solidity` with more than 1 ETH
 3. Run `./scrape-contracts.sh`. This will scrape the actual contracts. Each contract is saved under a folder with it's name containing all contracts necessary.
 4. Run `./prepare-contracts.sh`. This will fix the import statements to prepare the contracts for compilation.
-    - ** Do not close the browser or the scraper will crash! **
+    - **Do not close the browser or the scraper will crash!**
 5. Run `./compile-contracts.sh`
 6. Run `./extract-functions.sh`
 7. Run `./clean.sh` to uninstall all `solc` compiler versions and remove unnecessary files
