@@ -4,9 +4,9 @@ Scrape smart contract audits with vulnerable code and descriptions from [solodit
 
 Scrape verified (audited) functions from deployed contracts at [EtherScan](https://etherscan.io/).
 
-### Usage
+## Usage
 
-#### Scraping vulnerable contracts
+### Scraping vulnerable contracts
 
 1. `cd vulnerable` to go to the correct folder
 2. Create a file `account.json` with the following content:
@@ -27,7 +27,7 @@ Scrape verified (audited) functions from deployed contracts at [EtherScan](https
 
 5. Run `.combine` to create a `db-vulnerable.csv` combining all files into a single CSV.
 
-#### Scraping verified contracts
+### Scraping verified contracts
 
 1. `cd verified`
 2. Run `./scrape-urls.sh`. This will scrape the urls of all verified contracts written in `Solidity` with more than 1 ETH
